@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-outfit: 'Outfit', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff3c00;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 60, 0, 0.3);
+  color: #fff;
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Focus outline */
+:focus-visible {
+  outline: 2px solid #ff3c00;
+  outline-offset: 2px;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Noise texture overlay utility */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-accent {
+  background: linear-gradient(135deg, #ff3c00 0%, #ff8c00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Product card hover effect */
+.product-card-hover {
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+}
+.product-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 60, 0, 0.1);
+}
+
+/* Animate on scroll utility */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #161616 0%,
+    #222222 50%,
+    #161616 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Glow effect */
+.glow-accent {
+  box-shadow: 0 0 20px rgba(255, 60, 0, 0.3), 0 0 60px rgba(255, 60, 0, 0.1);
+}
+
+/* Line accent */
+.line-accent::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #ff3c00;
+  margin-top: 12px;
+  border-radius: 2px;
+}
+
+/* Hero grain texture */
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-2%, -3%); }
+  20% { transform: translate(-4%, 2%); }
+  30% { transform: translate(3%, -4%); }
+  40% { transform: translate(-2%, 5%); }
+  50% { transform: translate(-3%, 2%); }
+  60% { transform: translate(4%, -1%); }
+  70% { transform: translate(-1%, 4%); }
+  80% { transform: translate(3%, -2%); }
+  90% { transform: translate(-4%, 3%); }
+}
+
+/* Input base styles */
+.input-base {
+  @apply w-full bg-white/5 border border-border rounded-lg px-4 py-3 text-white placeholder-text-muted 
+         focus:outline-none focus:border-accent focus:bg-white/10 transition-all duration-200;
+}
+
+/* Button base styles */
+.btn-primary-full {
+  @apply inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover 
+         text-white font-semibold px-8 py-4 rounded-lg uppercase tracking-widest text-sm
+         transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(255,60,0,0.3)];
+}
+
+.btn-secondary-full {
+  @apply inline-flex items-center justify-center gap-2 bg-transparent border border-white/20 
+         hover:border-white text-white font-semibold px-8 py-4 rounded-lg uppercase tracking-widest text-sm
+         transition-all duration-300 hover:bg-white hover:text-black;
+}
+
+/* Tag badge */
+.tag-badge {
+  @apply inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full;
+}
