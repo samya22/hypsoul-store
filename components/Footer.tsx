@@ -80,13 +80,23 @@ export default function Footer() {
           {/* Social */}
           <div className="flex gap-3 mt-6">
             {[
-              { label: "Instagram", icon: <InstagramIcon /> },
-              { label: "Twitter", icon: <TwitterIcon /> },
-              { label: "TikTok", icon: <TikTokIcon /> },
-            ].map(({ label, icon }) => (
+              {
+                label: "Instagram",
+                icon: <InstagramIcon />,
+                href: "https://www.instagram.com/samya.22_/",
+              },
+              {
+                label: "Twitter",
+                icon: <TwitterIcon />,
+                href: "https://x.com/samyakkharat22",
+              },
+              { label: "YouTube", icon: <YouTubeIcon />, href: "#" },
+            ].map(({ label, icon, href }) => (
               <a
                 key={label}
-                href="#"
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                 aria-label={label}
                 className="w-10 h-10 md:w-9 md:h-9 rounded-lg bg-bg-card border border-border flex items-center justify-center text-text-secondary hover:text-white hover:border-accent/50 hover:bg-accent/10 transition-all touch-manipulation"
               >
@@ -155,10 +165,10 @@ function TwitterIcon() {
     </svg>
   );
 }
-function TikTokIcon() {
+function YouTubeIcon() {
   return (
     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.74a4.86 4.86 0 01-1.01-.05z" />
+      <path d="M23.5 6.2a3 3 0 00-2.1-2.12C19.55 3.5 12 3.5 12 3.5s-7.55 0-9.4.58A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.12c1.85.58 9.4.58 9.4.58s7.55 0 9.4-.58a3 3 0 002.1-2.12A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.6 15.8V8.2L16 12l-6.4 3.8z" />
     </svg>
   );
 }

@@ -310,13 +310,23 @@ export default function ContactClient() {
             </h3>
             <div className="flex gap-3">
               {[
-                { label: "Instagram", color: "hover:text-pink-400" },
-                { label: "Twitter", color: "hover:text-sky-400" },
-                { label: "TikTok", color: "hover:text-white" },
-              ].map(({ label, color }) => (
+                {
+                  label: "Instagram",
+                  color: "hover:text-pink-400",
+                  href: "https://www.instagram.com/samya.22_/",
+                },
+                {
+                  label: "Twitter",
+                  color: "hover:text-sky-400",
+                  href: "https://x.com/samyakkharat22",
+                },
+                { label: "YouTube", color: "hover:text-red-400", href: "#" },
+              ].map(({ label, color, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className={`px-4 py-2.5 bg-bg-elevated border border-border rounded-xl text-text-secondary text-sm font-medium transition-all hover:border-white/30 ${color}`}
                 >
                   {label}
