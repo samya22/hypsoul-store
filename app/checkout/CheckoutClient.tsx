@@ -333,7 +333,7 @@ export default function CheckoutClient() {
                       value={form.phone}
                       onChange={handleChange}
                       required
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 7709138858"
                       className="w-full bg-bg-elevated border border-border rounded-xl px-4 py-3 text-white placeholder-text-muted focus:border-accent focus:outline-none transition-colors text-base"
                     />
                   </div>

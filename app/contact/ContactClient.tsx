@@ -280,7 +280,7 @@ export default function ContactClient() {
             {
               icon: "📞",
               title: "Call / WhatsApp",
-              lines: ["+91 98765 43210"],
+              lines: ["+91 7709138858"],
               sub: "Mon–Fri, 10am–7pm IST",
             },
           ].map(({ icon, title, lines, sub }) => (
